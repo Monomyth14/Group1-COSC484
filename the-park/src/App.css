@@ -22,12 +22,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: serif;
 }
 
 .text-container {
   width: 400px;
-  height: 300px;
+  height: auto;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -44,26 +44,59 @@
 }
 
 .text-container p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.text-container button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: #547358;
+.login-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #3E5B3F;
   color: white;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
-.text-container button:hover {
+.signup-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: transparent;
+  color: #3E5B3F;
+  border-color: #3E5B3F;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.forgotpw-button {
+  background: none;
+  border: none;
+  color: #3E5B3F;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.login-button:hover {
   background-color: #7EAD83;
+}
+
+.signup-button:hover {
+  background-color: #f1f1f1;
 }
 
 .logo {
   width: 200px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
