@@ -87,6 +87,10 @@
   background-color: #f1f1f1;
 }
 
+.forgotpw-button:hover {
+  color: #7EAD83;
+}
+
 .logo {
   width: 200px;
 }
