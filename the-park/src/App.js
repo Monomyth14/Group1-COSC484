@@ -1,5 +1,6 @@
 import './App.css';
 import petImage from './petpic.png';
+import logo from './logo2.png'
 
 function App() {
   return (
@@ -7,11 +8,13 @@ function App() {
       <div className="image-container">
         <img src={petImage} alt="Pet" />
       </div>
-      <div className="text-container">
-        <h1>🌳 The Park 🌳</h1>
-        <p>A place to share all your favorite pet pictures with you family and friends!</p>
-        <button>Sign Up</button><br></br>
-        <button>Log In</button>
+      <div className="text-section">
+        <div className="text-container">
+          <img src={logo} alt="Pet Social Logo" className="logo" />
+          <p>A place to share all your favorite pet pictures with family and friends.</p>
+          <button>Sign Up</button>
+          <button>Log In</button>
+        </div>
       </div>
     </div>
   );
