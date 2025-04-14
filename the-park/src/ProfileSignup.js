@@ -33,7 +33,7 @@ function ProfileSignup() {
         <div className="nav">
           <div>ℹ️ <Link to="/about">About Us</Link></div>
           <div>🔔 Notifications</div>
-          <div>👤 Account</div>
+          <Link to="/profile">👤 Account</Link>
         </div>
       </div>
 

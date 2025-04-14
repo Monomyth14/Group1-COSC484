@@ -3,15 +3,23 @@
     font-family: serif;
   }
 
+  .page-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+  }
+
   body {
     margin: 0;
     display: flex;
     height: 100vh;
     background-color: #f3f0ec;
   }
-
+  
   .sidebar {
     width: 180px;
+    height: 100vh; /* this is the key part! */
     background-color: #a6c2a2;
     padding: 20px;
     display: flex;
@@ -20,7 +28,7 @@
   }
 
   .sidebar img {
-    width: 60px;
+    width: 90px;
     height: auto;
     margin-bottom: 10px;
   }

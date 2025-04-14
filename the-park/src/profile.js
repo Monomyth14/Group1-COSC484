@@ -1,82 +1,76 @@
 import React from 'react';
 import './App.css';
 import logo from './logo2.png';
+import chickenImage from './chicken.jpg'; 
 
-function profile() {
+function Profile() {
   return (
     <div className="container">
       {/* Sidebar */}
-      <div className="sidebar">
-        <div className="logo">
-          <img src={logo} alt="Profile Logo" />
+      <aside className="sidebar" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        {/* Top part */}
+        <div>
+          <div className="logo">
+            <img src={logo} alt="Logo" />
+            <h2>The Park</h2>
+          </div>
         </div>
-        <h2>My Dashboard</h2>
-        <nav>
-          <a href="#">Home</a>
-          <a href="#">Settings</a>
-          <a href="#">Logout</a>
-        </nav>
-      </div>
 
-      {/* Main Content */}
-      <div className="profile-content">
+        {/* Bottom nav */}
+        <nav style={{ marginTop: 'auto' }}>
+          <a href="#">Notifications</a>
+          <a href="#">Account</a>
+        </nav>
+      </aside>
+
+      {/* Main content */}
+      <main className="profile-content">
         <header>
-          <h1>Welcome Back!</h1>
-          <p>Here's what's going on with your profile.</p>
+          {/* Username */}
+          <h1 style={{ textAlign: 'center' }}>@chickenguy12</h1>
+          <div className="info">
+            {/* Profile photo */}
+            <img src={chickenImage} alt="Chicken Photo" className="avatar" />
+            <p>
+              <strong>Name:</strong> Roquan Hernandez<br />
+              <strong>Bio:</strong> I like chickens! Add me<br />
+            </p>
+          </div>
+
+          <div className="stats">
+            <div><strong>13</strong><br />followers</div>
+            <div><strong>68</strong><br />following</div>
+          </div>
+
+          <div className="pet-info">
+            <div>
+              <p><strong> Pets: </strong> Clucky </p>
+              <p><strong> About: </strong> He is a 10-year-old chicken. </p>
+            </div>
+          </div>
         </header>
 
-        <div className="info">
-          <img src="https://via.placeholder.com/80" alt="Avatar" className="avatar" />
-          <div>
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> john@example.com</p>
-          </div>
-        </div>
-
-        <div className="stats">
-          <div>
-            <strong>Posts:</strong>
-            <p>23</p>
-          </div>
-          <div>
-            <strong>Followers:</strong>
-            <p>102</p>
-          </div>
-          <div>
-            <strong>Following:</strong>
-            <p>180</p>
-          </div>
-        </div>
-
-        <div className="pet-info">
-          <div>
-            <strong>Pet Name:</strong>
-            <p>Buddy</p>
-          </div>
-          <div>
-            <strong>Breed:</strong>
-            <p>Golden Retriever</p>
-          </div>
-        </div>
-
-        <div className="posts">
-          <h2>Recent Posts</h2>
+        {/* Post Section */}
+        <section className="posts">
+          <h3>Posts</h3>
           <div className="post">
-            <p>Had a great walk with Buddy today!</p>
-            <img src="https://via.placeholder.com/400x200" alt="Post" />
+            <p className="username">chickenguy12</p>
+            <img src={chickenImage} alt="Chicken" />
+            <p><strong>Caption:</strong> My chicken is having a good day!</p>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
 
-      {/* Right Panel */}
-      <div className="profile-actions">
-        <h3>Actions</h3>
-        <button>Edit Profile</button>
-        <button>Upload Photo</button>
-        <button>Logout</button>
-      </div>
+      {/* Right panel */}
+      <aside className="profile-actions">
+        <h3>Profile</h3>
+        <button>Pet Name</button>
+        <button>Pet Name</button>
+        <button>Add Post</button>
+        <button>Create Group</button>
+      </aside>
     </div>
   );
 }
 
-export default ProfilePage;
+export default Profile;
