@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Profile from './profile';
 import ProfileSignup from './ProfileSignup';
+import About from './About';
 import petImage from './petpic.png';
 import logo from './logo2.png';
 import LostAndFound from './LostAndFound';
@@ -42,6 +43,7 @@ function App() {
         <Route path="/lost" element={<LostAndFound />} />
         <Route path="/signup" element={<ProfileSignup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );

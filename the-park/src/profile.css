@@ -1,45 +1,32 @@
-/* Base */
-* {
-    box-sizing: border-box;
-    font-family: serif;
-  }
-  
-  body {
+body {
     margin: 0;
-    display: flex;
-    height: 100vh;
+    font-family: Arial, sans-serif;
     background-color: #f3f0ec;
+    color: #333;
   }
   
-  .page-container {
+  .container {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100vh;
+    height: 100vh; /* Make sure the container spans the full height of the screen */
   }
   
-  /* Sidebar */
   .sidebar {
     width: 180px;
-    height: 100vh;
     background-color: #a6c2a2;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed; /* Keep the sidebar fixed */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Ensures the sidebar extends the entire height */
   }
   
   .sidebar img {
     width: 90px;
     height: auto;
     margin-bottom: 10px;
-  }
-  
-  .sidebar h1 {
-    font-size: 24px; /* Ensuring consistency with the profile signup page */
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
   }
   
   .sidebar .nav {
@@ -50,21 +37,46 @@
     font-size: 14px;
   }
   
-  .sidebar .nav a {
-    text-decoration: none;
+  .sidebar h1 {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .sidebar nav a {
+    display: block;
+    margin: 20px 0;
     color: #333;
+    text-decoration: none;
     font-weight: bold;
   }
   
   /* Main content */
-  .main {
+  .profile-content {
+    margin-left: 180px; 
     flex: 1;
-    padding: 40px;
-    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
     overflow-y: auto;
+    height: 100vh;
+    padding-top: 40px; 
+  }
+  .profile-content header {
+    background-color: #fef9f4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
   }
   
-  /* Avatar and Info */
+  .profile-content h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+  }
+  
+  .profile-content p {
+    margin: 5px 0;
+  }
+  
   .avatar {
     width: 80px;
     height: 80px;
@@ -79,34 +91,19 @@
     gap: 20px;
   }
   
-  /* Profile Header */
-  .profile-content header {
-    background-color: #fef9f4;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .profile-content h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
-  }
-  
-  /* Stats */
   .stats {
     display: flex;
     gap: 30px;
     margin-top: 15px;
   }
   
-  /* Pet Info */
   .pet-info {
     display: flex;
+    text-align: left;
     gap: 50px;
     margin-top: 20px;
   }
   
-  /* Posts */
   .posts {
     margin-top: 20px;
   }
@@ -130,7 +127,6 @@
     margin-top: 10px;
   }
   
-  /* Buttons */
   button {
     padding: 10px 16px;
     background-color: #fff;
@@ -147,10 +143,11 @@
   
   /* Right Panel */
   .profile-actions {
-    width: 25%;
+    width: 300px;
     padding: 20px;
     box-sizing: border-box;
     background-color: #fefefe;
+    border-left: 1px solid #ddd;
   }
   
   .profile-actions h3 {
@@ -168,53 +165,5 @@
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
-  }
-  
-  /* Form Styling (if any) */
-  form {
-    display: inline-block;
-    text-align: left;
-  }
-  
-  fieldset {
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    background-color: transparent;
-  }
-  
-  label {
-    display: block;
-    margin-top: 24px;
-    font-size: 18px;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    background-color: #7EAD83;
-    border: none;
-    border-radius: 4px;
-    font-size: 18px;
-  }
-  
-  button, input[type="submit"] {
-    padding: 10px 24px;
-    margin: 0 10px;
-    background-color: #7EAD83;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  
-  button:hover, input[type="submit"]:hover {
-    background-color: #d3e3d3;
-  }
-  
-  .buttons {
-    margin-top: 20px;
-    text-align: center;
   }
   
