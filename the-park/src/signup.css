@@ -19,7 +19,7 @@
   
   .sidebar {
     width: 180px;
-    height: 100vh; /* this is the key part! */
+    height: 100vh;
     background-color: #a6c2a2;
     padding: 20px;
     display: flex;
