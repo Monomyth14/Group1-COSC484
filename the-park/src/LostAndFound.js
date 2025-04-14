@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './LostAndFound.css';
-import logo2 from './logo2.png'; // Ensure this path/name matches your logo file
+import logo2 from './logo2.png';
 import { FaCamera, FaMapMarkerAlt } from 'react-icons/fa';
 
 function LostAndFound() {
