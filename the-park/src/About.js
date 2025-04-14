@@ -10,7 +10,7 @@ function About() {
         <img src={logo} alt="Tree Logo" />
         <h1>The Park</h1>
         <div className="nav">
-            <div>ℹ️ <Link to="/about">About Us</Link></div>
+            <div>ℹ️ <Link to="/About">About Us</Link></div>
             <div>🔔 Notifications</div>
             <div>👤 Account</div>
         </div>

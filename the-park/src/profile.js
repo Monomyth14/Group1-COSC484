@@ -1,30 +1,25 @@
 import React from 'react';
-import './App.css';
+import { Link } from 'react-router-dom';
+import './profile.css';
 import logo from './logo2.png';
-import chickenImage from './chicken.jpg'; 
+import chickenImage from './chicken.jpg';
 
 function Profile() {
   return (
-    <div className="container">
+    <div className="page-container">
       {/* Sidebar */}
-      <aside className="sidebar" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-        {/* Top part */}
-        <div>
-          <div className="logo">
-            <img src={logo} alt="Logo" />
-            <h2>The Park</h2>
-          </div>
+      <div className="sidebar">
+        <img src={logo} alt="Logo" />
+        <h2>The Park</h2>
+        <div className="nav">
+          <div>ℹ️ <Link to="/about">About Us</Link></div> {/* Added the About Us link */}
+          <div>🔔 Notifications</div>
+          <Link to="/profile">👤 Account</Link>
         </div>
+      </div>
 
-        {/* Bottom nav */}
-        <nav style={{ marginTop: 'auto' }}>
-          <a href="#">Notifications</a>
-          <a href="#">Account</a>
-        </nav>
-      </aside>
-
-      {/* Main content */}
-      <main className="profile-content">
+      {/* Main Content */}
+      <div className="main">
         <header>
           {/* Username */}
           <h1 style={{ textAlign: 'center' }}>@chickenguy12</h1>
@@ -59,16 +54,7 @@ function Profile() {
             <p><strong>Caption:</strong> My chicken is having a good day!</p>
           </div>
         </section>
-      </main>
-
-      {/* Right panel */}
-      <aside className="profile-actions">
-        <h3>Profile</h3>
-        <button>Pet Name</button>
-        <button>Pet Name</button>
-        <button>Add Post</button>
-        <button>Create Group</button>
-      </aside>
+      </div>
     </div>
   );
 }
