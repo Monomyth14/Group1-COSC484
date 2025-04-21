@@ -22,12 +22,11 @@ function Home() {
         <div className="text-container">
           <img src={logo} alt="Pet Social Logo" className="logo" />
           <p>A place to share all your favorite pet pictures with family and friends.</p>
-          <input type="text" placeholder="Username" className="input-field" />
-          <input type="password" placeholder="Password" className="input-field" />
+          <input type="text" placeholder="Username" className="input-fieldlogin" />
+          <input type="password" placeholder="Password" className="input-fieldlogin" />
           <button className="login-button">Log in</button>
-          <br /><br />
-          <button className="forgot-pw-button">Forgot Password</button>
-          <br /><br />
+          <button className="forgotpw-button">Forgot Password</button>
+          <br/><br/>
           <button className="signup-button" onClick={() => navigate('/signup')}>Create New Account</button>
         </div>
       </div>
