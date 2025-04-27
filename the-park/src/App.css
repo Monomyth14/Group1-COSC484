@@ -33,9 +33,8 @@
 .text-container {
   width: 100%;
   max-width: 400px;
-  background-color: white;
+  background-color: transparent;
   border-radius: 10px;
-  box-shadow: 5px 10px #888888;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,10 +52,10 @@
   width: 100%;
   padding: 0.8rem;
   margin: 0.5rem 0;
-  font-size: 1rem;
+  font-size: 1rem !important;
   border: 1px solid #ccc !important;
   border-radius: 10px !important;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   background-color: white !important;
 }
 
