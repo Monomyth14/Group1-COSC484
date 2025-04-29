@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 import './App.css';
@@ -16,6 +16,40 @@ import logo from './logo2.png';
 function Home() {
   const navigate = useNavigate();
 
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: ''
+  });
+  
+  //reusable
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:5001/api/user/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(loginData)
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        console.log('Login success:', result);
+        localStorage.setItem('token', result.data.token);
+        navigate('/main', { state: { user: result.data.user } });
+      } else {
+        alert(result.error || 'Login failed');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('An error occurred. Try again later.');}
+  };
+  
+
   return (
     <div className="landing">
       <div className="image-container">
@@ -25,9 +59,21 @@ function Home() {
         <div className="text-container">
           <img src={logo} alt="Pet Social Logo" className="logo" />
           <p>A place to share all your favorite pet pictures with family and friends.</p>
-          <input type="text" placeholder="Username" className="input-fieldlogin" />
-          <input type="password" placeholder="Password" className="input-fieldlogin" />
-          <button className="login-button" onClick={() => navigate('/main')}>Log in</button>
+          <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          className="input-fieldlogin"
+          value={loginData.email}
+          onChange={handleChange}/>
+          <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          className="input-fieldlogin"
+          value={loginData.password}
+          onChange={handleChange}/>
+          <button className="login-button" onClick={handleLogin}>Log in</button>
           <button className="forgotpw-button">Forgot Password</button>
           <br /><br />
           <button className="signup-button" onClick={() => navigate('/signup')}>Create New Account</button>

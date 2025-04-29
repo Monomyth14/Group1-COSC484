@@ -7,7 +7,8 @@ function ProfileSignup() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
-    profileName: '',
+    profilename: '',
+    email: '',
     password: '',
     bio: '',
   });
@@ -20,25 +21,43 @@ function ProfileSignup() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate('/profilePage', { state: formData });
+    
+    try {
+      const response = await fetch('http://localhost:5001/api/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log('Account sign up was successfully:', result);
+        navigate('/profile', {state: formData}); // Redirects to the home page after successful signup
+      } else {
+        alert(result.error || 'Registration failed');
+      }
+    } catch (error) {
+      console.error('Error during sign up:', error);
+      alert('An error occurred. Please try again later.');
+    }
   };
 
   return (
     <div className="page-container">
       <div className="sidebar">
-        <img src={logo} alt="Logo" />
-        <h1>The Park</h1>
+        <img src={logo} alt="Tree Logo" />
+        <h1>The Park</h1>` `
         <div className="nav">
           <div>ℹ️ <Link to="/about">About Us</Link></div>
-          <div>👤 <Link to="/profile">My Profile</Link></div>
-          <div>👥 <Link to="/group_profile">Group Profile</Link></div>
-          <div>🔍 <Link to="/lost">Lost and Found</Link></div>
-          <div>🎉 <Link to="/petevents">Pet Events</Link></div>
+          <div>🔔 Notifications</div>
+          <Link to="/profile">👤 Account</Link>
         </div>
       </div>
-      
+
       <div className="main">
         <h1>Profile Signup Page</h1>
         <form onSubmit={handleSubmit} id="profileForm">
@@ -53,22 +72,34 @@ function ProfileSignup() {
               required
             />
 
-            <label htmlFor="profileName">Profile Name:</label>
+            <label htmlFor="profilename">Profile Name:</label>
             <input
               type="text"
-              id="profileName"
-              name="profileName"
-              value={formData.profileName}
+              id="profilename"
+              name="profilename"
+              value={formData.profilename}
               onChange={handleChange}
+              required
+            />
+
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
             />
 
             <label htmlFor="password">Password:</label>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
+              required
             />
 
             <label htmlFor="bio">Bio:</label>
