@@ -28,15 +28,17 @@ function ProfileSignup() {
   return (
     <div className="page-container">
       <div className="sidebar">
-        <img src={logo} alt="Tree Logo" />
-        <h1>The Park</h1>` `
+        <img src={logo} alt="Logo" />
+        <h1>The Park</h1>
         <div className="nav">
           <div>ℹ️ <Link to="/about">About Us</Link></div>
-          <div>🔔 Notifications</div>
-          <Link to="/profile">👤 Account</Link>
+          <div>👤 <Link to="/profile">My Profile</Link></div>
+          <div>👥 <Link to="/group_profile">Group Profile</Link></div>
+          <div>🔍 <Link to="/lost">Lost and Found</Link></div>
+          <div>🎉 <Link to="/petevents">Pet Events</Link></div>
         </div>
       </div>
-
+      
       <div className="main">
         <h1>Profile Signup Page</h1>
         <form onSubmit={handleSubmit} id="profileForm">
