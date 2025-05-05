@@ -1,8 +1,8 @@
 // GroupSignup.js
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from './logo2.png';
-import './signup.css';
+import logo from './Images/logo2.png';
+import './Style/signup.css';
 
 const GroupSignup = () => {
   const navigate = useNavigate();

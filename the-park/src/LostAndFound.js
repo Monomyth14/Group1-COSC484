@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './LostAndFound.css';
-import logo2 from './logo2.png';
+import './Style/LostAndFound.css';
+import logo2 from './Images/logo2.png';
 import { FaCamera, FaMapMarkerAlt } from 'react-icons/fa';
 
 function LostAndFound() {

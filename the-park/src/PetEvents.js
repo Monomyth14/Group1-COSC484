@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './PetEvents.css';
-import logo2 from './logo2.png';
+import './Style/PetEvents.css';
+import logo2 from './Images/logo2.png';
 
 function PetEvents() {
   const [events, setEvents] = useState([]);

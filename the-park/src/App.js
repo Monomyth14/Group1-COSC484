@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
-import './App.css';
+import './Style/App.css';
 import Profile from './profile';
 import ProfileSignup from './ProfileSignup';
 import About from './About';
@@ -10,8 +10,8 @@ import CreatePost from './CreatePost';
 import Main from './Main'; 
 import PetEvents from './PetEvents';
 
-import petImage from './petpic.png';
-import logo from './logo2.png';
+import petImage from './Images/petpic.png';
+import logo from './Images/logo2.png';
 
 function Home() {
   const navigate = useNavigate();

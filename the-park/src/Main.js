@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './profile.css';
-import './main.css';
-import logo from './logo2.png';
+import './Style/profile.css';
+import './Style/main.css';
+import logo from './Images/logo2.png';
 
 function Main() {
   const posts = ["", "", "", "", ""];
