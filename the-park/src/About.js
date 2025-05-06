@@ -8,7 +8,6 @@ function About() {
     <div className="page-container">
       <div className="sidebar">
         <img src={logo} alt="Tree Logo" />
-        <h1>The Park</h1>
         <div className="nav">
             <div>ℹ️ <Link to="/profile">About Us</Link></div> 
             <div>🔔 Notifications</div>
@@ -20,7 +19,7 @@ function About() {
         <h1>About The Park!</h1>
         <p>
           The Park is a pet-focused social media platform where users can share pictures, stories, and information about their pets.
-          Users can follow a variety of groups—some centered around fun and entertainment, others focused on education and advice.
+          Users can follow a variety of groups: some centered around fun and entertainment, others focused on education and advice.
           If you don't find a group that fits your needs, you're welcome to create your own and bring pet lovers together!
         </p>
         <br />

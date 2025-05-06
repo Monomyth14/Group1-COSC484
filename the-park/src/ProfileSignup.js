@@ -50,12 +50,6 @@ function ProfileSignup() {
     <div className="page-container">
       <div className="sidebar">
         <img src={logo} alt="Tree Logo" />
-        <h1>The Park</h1>` `
-        <div className="nav">
-          <div>ℹ️ <Link to="/about">About Us</Link></div>
-          <div>🔔 Notifications</div>
-          <Link to="/profile">👤 Account</Link>
-        </div>
       </div>
 
       <div className="main">

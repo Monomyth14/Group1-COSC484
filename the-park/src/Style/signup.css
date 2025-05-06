@@ -2,12 +2,35 @@
     box-sizing: border-box;
     font-family: serif;
   }
+  
+  .sidebar {
+    width: 180px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+  }
+
+  html, body {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden; /* Eliminates excess horizontal space */
+  }
 
   .page-container {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  .main {
+    flex-grow: 1;
+    padding: 40px;
+    text-align: center;
+    width: calc(100vw - 180px); /* Sidebar width subtracted */
+    max-width: calc(100vw - 180px); 
+    overflow: hidden; /* Prevents content from stretching beyond */
   }
 
   body {
@@ -16,25 +39,10 @@
     height: 100vh;
     background-color: #f3f0ec;
   }
-  
-  .sidebar {
-    width: 180px;
-    background-color: #a6c2a2;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-  }
 
   .sidebar img {
-    width: 90px;
+    width: 200px !important; /* Forces override */
     height: auto;
-    margin-bottom: 10px;
   }
 
   .sidebar .nav {
@@ -45,15 +53,9 @@
     font-size: 14px;
   }
 
-  .main {
-    flex: 1;
-    padding: 40px;
-    text-align: center;
-  }
-
   form {
     display: inline-block;
-    text-align: left;
+    text-align: center;
   }
 
   fieldset {
@@ -68,9 +70,12 @@
     margin-top: 24px;
     font-size: 18px;
   }
-
-  input[type="text"] {
-    width: 100%;
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 80%; /* Adjusts size relative to parent */
+    max-width: 400px; /* Prevents excessive width */
     padding: 12px;
     margin-top: 8px;
     background-color: #7EAD83;
