@@ -9,7 +9,6 @@ import LostAndFound from './LostAndFound';
 import CreatePost from './CreatePost';
 import Main from './Main'; 
 import PetEvents from './PetEvents';
-
 import petImage from './Images/petpic.png';
 import logo from './Images/logo2.png';
 
