@@ -5,6 +5,7 @@ import './Style/App.css';
 import Profile from './profile';
 import ProfileSignup from './ProfileSignup';
 import About from './About';
+import CreateGroup from './GroupSignup';
 import LostAndFound from './LostAndFound';
 import CreatePost from './CreatePost';
 import Main from './Main'; 
@@ -89,6 +90,7 @@ function AppRoutes() {
       <Route path="/main" element={<Main />} />
       <Route path="/lost" element={<LostAndFound />} />
       <Route path="/signup" element={<ProfileSignup />} />
+      <Route path="/GroupSignup" element={<CreateGroup/>} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/about" element={<About />} />
       <Route path="/post" element={<CreatePost />} />

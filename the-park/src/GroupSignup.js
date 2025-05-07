@@ -20,12 +20,6 @@ const GroupSignup = () => {
     <div className="container">
       <div className="sidebar">
         <img src={logo} alt="Tree Logo" />
-        <h1>The Park</h1>
-        <div className="nav">
-          <div>ℹ️ <Link to="/about">About Us</Link></div>
-          <div>🔔 Notifications</div>
-          <div>👤 Account</div>
-        </div>
       </div>
 
       <div className="main">
@@ -40,7 +34,7 @@ const GroupSignup = () => {
 
             <div className="buttons">
               <input type="submit" value="Submit" />
-              <button type="button" onClick={() => navigate('/')}>Cancel</button>
+              <button type="button" onClick={() => navigate('/Main')}>Cancel</button>
             </div>
           </fieldset>
         </form>
