@@ -24,7 +24,7 @@ function PetEvents() {
   };
 
   return (
-    <div className="events-page">
+    <div className="pet-events-page">
       {/* Sidebar */}
       <div className="sidebar">
         <img src={logo2} alt="The Park Logo" className=" sidebar-logo" />
@@ -38,7 +38,7 @@ function PetEvents() {
 
       {/* Main Content */}
       <div className="events-main">
-        <h1>Events</h1>
+        <h1 id="event-title">Events</h1>
 
         <form className="form-box" onSubmit={handleSubmit}>
           <input
@@ -76,16 +76,16 @@ function PetEvents() {
             onChange={handleChange}
             required
           />
-          <button type="submit">Add Event</button>
+          <button type="submit">Create Event</button>
         </form>
 
-        <h2>Upcoming Events</h2>
+        <h2 id ="upcoming-title"className = "upcoming-events">Upcoming Events</h2>
         {events.length === 0 ? (
           <p className="empty-state">No events added yet.</p>
         ) : (
           <div className="feed-grid">
             {events.map((event, index) => (
-              <div className="event-card" key={index}>
+              <div className="event-card" key={index}> 
                 <h3>{event.title}</h3>
                 <p><strong>Date:</strong> {event.date}</p>
                 <p><strong>Time:</strong> {event.time}</p>
