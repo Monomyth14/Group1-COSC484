@@ -4,7 +4,22 @@
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
+  background-image: url('./Images/events-background.png');
+  background-size: cover;
+  background-position: center;
+  padding-left: 300px;
   
+  
+}
+
+#event-title {
+  color:#f1f1f1;
+  font-size: 75px;
+  justify-self: center;
+}
+#upcoming-title{
+  color:#f1f1f1;
+  font-size: 30px;
 }
 
 .sidebar {
@@ -42,12 +57,11 @@
 }
 
 .form-section {
-  margin-left: 300px;
   flex: 1;
   padding: 40px;
   box-sizing: border-box;
   overflow-y: auto;
-  justify-self: right;
+  display:flex;
 
 }
 
@@ -58,9 +72,7 @@ form#eventForm {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   margin-bottom: 40px;
   max-width: 600px;
-  margin-left: 300px;
-  justify-content: center;
-  justify-self: right;
+  display:flex;
 }
 
 input, textarea {
@@ -71,6 +83,7 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
+  
 }
 
 button {
@@ -84,19 +97,27 @@ button {
 }
 
 button:hover {
-  background-color: #7EAD83;
+  background-color: #3E5B3F;
 }
 
 .event-card {
   background-color: #fafafa;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
-  margin-left: 250px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .empty-state {
-  color: #999;
+  color: #eef126;
   font-style: italic;
+  font-size: 18px;
 }
+
+.form-box{
+  margin-left: 200px;
+
+}
+
+
+ 
