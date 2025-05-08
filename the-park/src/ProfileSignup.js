@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Style/signup.css';
 import logo from './Images/logo2.png';
-import { Link, useNavigate } from 'react-router-dom';
+import useNavigate from 'react-router-dom';
 
 function ProfileSignup() {
   const navigate = useNavigate();
