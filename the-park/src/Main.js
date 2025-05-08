@@ -18,11 +18,12 @@ function Main() {
         <img src={logo} alt="Logo" />
         <h1>The Park</h1>
         <div className="nav">
-          <div>ℹ️ <Link to="/about">About Us</Link></div>
+          
           <div>👤 <Link to="/profile">My Profile</Link></div>
           <div>👥 <Link to="/group_profile">Group Profile</Link></div>
           <div>🔍 <Link to="/lost">Lost and Found</Link></div>
           <div>🎉 <Link to="/petevents">Pet Events</Link></div>
+          <div>ℹ️ <Link to="/about">About Us</Link></div>
         </div>
       </div>
 
