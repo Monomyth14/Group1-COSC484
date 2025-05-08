@@ -4,10 +4,10 @@
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  background-image: url('./events-background.png');
+  background-image: url('./Images/events-background.png');
   background-size: cover;
   background-position: center;
-  padding-left: 350px;
+  padding-left: 300px;
   
   
 }
@@ -61,6 +61,7 @@
   padding: 40px;
   box-sizing: border-box;
   overflow-y: auto;
+  display:flex;
 
 }
 
@@ -71,6 +72,7 @@ form#eventForm {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   margin-bottom: 40px;
   max-width: 600px;
+  display:flex;
 }
 
 input, textarea {
