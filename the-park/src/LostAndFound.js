@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './Style/LostAndFound.css';
-import logo2 from './Images/logo2.png';
+import './LostAndFound.css';
+import logo2 from './logo2.png'; // Ensure this path/name matches your logo file
 import { FaCamera, FaMapMarkerAlt } from 'react-icons/fa';
 
 function LostAndFound() {
@@ -16,12 +16,10 @@ function LostAndFound() {
   });
   const [photoPreview, setPhotoPreview] = useState(null);
 
-  // Update text fields
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Handle file selection and preview
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -31,7 +29,6 @@ function LostAndFound() {
     }
   };
 
-  // Submit form data
   const handleSubmit = (e) => {
     e.preventDefault();
     const newEntry = { ...form, photo: photoPreview };
@@ -44,12 +41,21 @@ function LostAndFound() {
     setPhotoPreview(null);
   };
 
-  // Render the form
+  const handleDelete = (index, isLost) => {
+    if (isLost) {
+      const updatedLost = lostPets.filter((_, i) => i !== index);
+      setLostPets(updatedLost);
+    } else {
+      const updatedFound = foundPets.filter((_, i) => i !== index);
+      setFoundPets(updatedFound);
+    }
+  };
+
   const renderForm = () => (
     <form className="form-box" onSubmit={handleSubmit}>
       <input
         name="name"
-        placeholder="Pet Name (optional)"
+        placeholder="Pet Name"
         value={form.name}
         onChange={handleChange}
       />
@@ -102,13 +108,13 @@ function LostAndFound() {
     </form>
   );
 
-  // Render the pet cards feed
   const renderFeed = (data, isLost) => {
     if (!data.length) {
       return (
-        <p className="empty-state">
-          No {isLost ? 'lost' : 'found'} pets reported yet.
-        </p>
+        <div className="empty-state">
+          <img src={cuteDog} alt="No pets" className="empty-img" />
+          <p>No {isLost ? 'lost' : 'found'} pets reported yet.</p>
+        </div>
       );
     }
     return (
@@ -116,11 +122,23 @@ function LostAndFound() {
         {data.map((item, index) => (
           <div className="pet-card" key={index}>
             {item.photo && <img src={item.photo} alt="Pet" />}
-            <h3>{item.name || 'Unnamed'}</h3>
-            <p><strong>Location:</strong> {item.location}</p>
-            <p><strong>Date:</strong> {item.date}</p>
-            <p>{item.description}</p>
-            <p><strong>Contact:</strong> {item.contact}</p>
+            <div className="card-content">
+              <span className={`tag ${isLost ? 'lost' : 'found'}`}>
+                {isLost ? 'Lost' : 'Found'}
+              </span>
+              <h3>{item.name || 'Unnamed Pet'}</h3>
+              <p><strong>Location:</strong> {item.location || 'Unknown'}</p>
+              <p><strong>Date:</strong> {item.date || 'Unknown'}</p>
+              <p className="description">{item.description || 'No description provided.'}</p>
+              <p><strong>Contact:</strong> {item.contact || 'No contact given'}</p>
+            </div>
+            <button
+              className="delete-btn"
+              onClick={() => handleDelete(index, isLost)}
+              title="Delete Post"
+            >
+              <FaTrash />
+            </button>
           </div>
         ))}
       </div>
@@ -129,7 +147,6 @@ function LostAndFound() {
 
   return (
     <div className="lost-page">
-      {/* Sidebar */}
       <div className="sidebar">
         <img src={logo2} alt="The Park Logo" className="sidebar-logo" />
         <h2 className="park-title">The Park</h2>
@@ -140,7 +157,6 @@ function LostAndFound() {
         </nav>
       </div>
 
-      {/* Main Content */}
       <div className="lost-main">
         <h1>Lost &amp; Found Pets</h1>
         <div className="tab-buttons">
