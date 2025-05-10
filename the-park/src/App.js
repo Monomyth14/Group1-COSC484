@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 
 import './Style/App.css';
 import Profile from './profile';
+import EditProfilePage from './EditProfilePage';  
 import ProfileSignup from './ProfileSignup';
 import About from './About';
 import CreateGroup from './GroupSignup';
@@ -95,6 +96,7 @@ function AppRoutes() {
       <Route path="/groupSignup" element={<CreateGroup/>} />
       <Route path="/groupPage" element={<groupPage/>}/>
       <Route path="/profile" element={<Profile />} />
+      <Route path="/edit-profile" element={<EditProfilePage />} /> 
       <Route path="/about" element={<About />} />
       <Route path="/post" element={<CreatePost />} />
       <Route path="/petevents" element={<PetEvents />} />
