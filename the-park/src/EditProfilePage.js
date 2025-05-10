@@ -10,8 +10,8 @@ const TAG_SUGGESTIONS = ['Curious', 'Fluffy', 'Clean', 'Shy', 'Playful', 'Kind',
 function Sidebar() {
   const items = [
     { to: '/about', label: 'About Page', emoji: 'ℹ️' },
-    { to: '/edit-profile', label: 'Edit Profile', emoji: '✏️' },
     { to: '/profile', label: 'Profile Page', emoji: '👤' },
+    { to: '/edit-profile', label: 'Edit Profile', emoji: '✏️' },
     { to: '/post', label: 'Create Post', emoji: '📝' },
     { to: '/signup', label: 'Group Sign Up', emoji: '👥' },
   ];
