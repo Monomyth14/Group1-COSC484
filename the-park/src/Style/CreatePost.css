@@ -1,0 +1,71 @@
+.create-post-container {
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    width: 100%;         
+    padding: 200px;           
+  }
+  
+  .create-post-container h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  
+  .input-field[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  
+  .login-button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .forgotpw-button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .login-button:hover {
+    background-color: #45a049;
+  }
+  
+  .create-post-image {
+    margin-top: 30px;
+    width: 500px; /* You can adjust the size */
+    
+  }
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
