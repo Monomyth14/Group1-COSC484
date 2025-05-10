@@ -305,7 +305,7 @@ export default function EditProfilePage() {
       )}
       {showModal && (
         <ConfirmationModal
-          message="Your account has been deactivated. You’ve been logged out."
+          message="Are you sure you want to Deactivate your account?. If you click yes and continue, You will be logged out and sent back to the Home page."
           onConfirm={confirmDeactivate}
           onCancel={() => setShowModal(false)}
         />
