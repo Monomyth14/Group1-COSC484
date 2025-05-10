@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './LostAndFound.css';
-import logo2 from './logo2.png'; // Ensure this path/name matches your logo file
+import './Style/LostAndFound.css';
+import logo2 from './Images/logo2.png'; 
 import { FaCamera, FaMapMarkerAlt } from 'react-icons/fa';
 
 function LostAndFound() {
@@ -112,7 +112,6 @@ function LostAndFound() {
     if (!data.length) {
       return (
         <div className="empty-state">
-          <img src={cuteDog} alt="No pets" className="empty-img" />
           <p>No {isLost ? 'lost' : 'found'} pets reported yet.</p>
         </div>
       );
@@ -137,7 +136,6 @@ function LostAndFound() {
               onClick={() => handleDelete(index, isLost)}
               title="Delete Post"
             >
-              <FaTrash />
             </button>
           </div>
         ))}
