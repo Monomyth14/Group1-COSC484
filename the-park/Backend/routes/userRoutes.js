@@ -65,4 +65,26 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.get('/profile/:userId', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId)
+      .populate('groupsOwned', 'groupName')
+      .populate('groupsJoined', 'groupName');
+
+    if (!user) return res.status(404).json({ error: 'User not found' });
+
+    res.json({
+      username: user.username,
+      profilename: user.profilename,
+      email: user.email,
+      bio: user.bio,
+      groupsOwned: user.groupsOwned,
+      groupsJoined: user.groupsJoined,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error fetching profile data' });
+  }
+});
+
 module.exports = router;

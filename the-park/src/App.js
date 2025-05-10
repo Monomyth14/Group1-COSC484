@@ -6,6 +6,7 @@ import Profile from './profile';
 import ProfileSignup from './ProfileSignup';
 import About from './About';
 import CreateGroup from './GroupSignup';
+import groupPage from './groupPage';
 import LostAndFound from './LostAndFound';
 import CreatePost from './CreatePost';
 import Main from './Main'; 
@@ -40,6 +41,7 @@ function Home() {
       if (response.ok) {
         console.log('Login success:', result);
         localStorage.setItem('token', result.data.token);
+        localStorage.setItem('userId', result.data.user.id);
         navigate('/main', { state: { user: result.data.user } });
       } else {
         alert(result.error || 'Login failed');
@@ -90,7 +92,8 @@ function AppRoutes() {
       <Route path="/main" element={<Main />} />
       <Route path="/lost" element={<LostAndFound />} />
       <Route path="/signup" element={<ProfileSignup />} />
-      <Route path="/GroupSignup" element={<CreateGroup/>} />
+      <Route path="/groupSignup" element={<CreateGroup/>} />
+      <Route path="/groupPage" element={<groupPage/>}/>
       <Route path="/profile" element={<Profile />} />
       <Route path="/about" element={<About />} />
       <Route path="/post" element={<CreatePost />} />

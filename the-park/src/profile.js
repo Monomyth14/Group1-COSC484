@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Style/profile.css';
 import logo from './Images/logo2.png';
 
 function Profile() {
   const navigate = useNavigate();
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userId = localStorage.getItem('userId');
+      if (!userId) return;
+
+      try {
+        const response = await fetch(`http://localhost:5001/api/user/profile/${userId}`);
+        const data = await response.json();
+        setUserData(data);
+      } catch (err) {
+        console.error('Failed to fetch user data', err);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   const handleLogout = () => {
+    localStorage.removeItem('userId');
     navigate('/');
   };
+
+  if (!userData) return <div>Loading...</div>;
 
   return (
     <div className="page-container">
@@ -28,39 +49,29 @@ function Profile() {
         <div className="profile-header">
           <div className="avatar-placeholder"></div>
           <div className="profile-details">
-            <h1>@username</h1>
-            <p><strong>Name:</strong> User Name</p>
-            <p><strong>Bio:</strong> This is a user bio.</p>
+            <h1>@{userData.username}</h1>
+            <p><strong>Name:</strong> {userData.profilename}</p>
+            <p><strong>Bio:</strong> {userData.bio}</p>
 
             <div className="stats">
               <div><strong>0</strong><br />followers</div>
               <div><strong>0</strong><br />following</div>
             </div>
 
-            <div className="pet-info">
-              <div><strong>Pets:</strong> Pet Name</div>
-              <div><strong>About:</strong> Description about the pet.</div>
+            <div className="groups-info">
+              <strong>Groups Owned:</strong>
+              <ul>
+                {userData.groupsOwned.map(group => (
+                  <li key={group._id}>{group.groupName}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
 
         <div className="profile-posts">
           <h2>Posts</h2>
-
-          <div className="post">
-            <p className="username">@username</p>
-            <div className="post-placeholder">Post content goes here</div>
-          </div>
-
-          <div className="post">
-            <p className="username">@username</p>
-            <div className="post-placeholder">Another post content</div>
-          </div>
-
-          <div className="post">
-            <p className="username">@username</p>
-            <div className="post-placeholder">Yet another post</div>
-          </div>
+          <div className="post-placeholder">No posts yet.</div>
         </div>
       </div>
 

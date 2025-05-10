@@ -28,6 +28,12 @@ mongoose.connect(process.env.MONGO_URI, {
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/user', userRoutes);
 
+const groupRoutes = require('./routes/groupRoutes');
+app.use('/api/groups', groupRoutes); 
+
+const postRoutes = require('./routes/postRoutes');
+app.use('/api/post', postRoutes); 
+
 // browser testing
 app.get('/', (req, res) => {
   res.send('API is running!');

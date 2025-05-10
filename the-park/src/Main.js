@@ -19,7 +19,7 @@ function Main() {
         <div className="nav">
           <div>ℹ️ <Link to="/about">About Us</Link></div>
           <div>👤 <Link to="/profile">My Profile</Link></div>
-          <div>👥 <Link to="/GroupSignup">Create Group</Link></div>
+          <div>👥 <Link to="/groupSignup">Create Group</Link></div>
           <div>🔍 <Link to="/lost">Lost and Found</Link></div>
           <div>🎉 <Link to="/petevents">Pet Events</Link></div>
         </div>
@@ -29,7 +29,7 @@ function Main() {
         <h1 className="profile-title">Welcome to The Park!</h1>
         <div className="main-links">
           <Link to="/profile" className="main-button">My Profile</Link>
-          <Link to="/GroupSignup" className="main-button">Create Group</Link>
+          <Link to="/groupSignup" className="main-button">Create Group</Link>
           <Link to="/lost" className="main-button">Lost and Found</Link>
           <Link to="/post" className="main-button">Create Post</Link>
         </div>
