@@ -3,11 +3,14 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
-router.post('/register', async (req, res) => {
+router.post('/register', upload.single('profilePic'), async (req, res) => {
   console.log('Hit /register route'); // checks route
   try {
     const { username, profilename, email, password, bio } = req.body;
+    const profilePic = req.file ? req.file.path : null;
 
     if (!username || !profilename || !email || !password) {
         return res.status(400).json({ error: 'All fields are required.' });
@@ -26,7 +29,7 @@ router.post('/register', async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     
-    const newUser = new User({ username, profilename, email, password: hashedPassword, bio });
+    const newUser = new User({ username, profilename, email, password: hashedPassword, bio, profilePic });
     await newUser.save();
 
     res.status(201).json({ message: 'User created.' });
