@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -6,6 +7,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
+console.log('Loaded MONGO_URI:', process.env.MONGO_URI);
 if (!process.env.MONGO_URI) {
   console.error('Error: MONGO_URI is not defined in the environment variables.');
   process.exit(1);
@@ -17,6 +19,8 @@ app.use(express.json());
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   dbName: 'petsocialmedia',
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 })
   .then(() => console.log('MongoDB connected'))
   .catch(err => {
