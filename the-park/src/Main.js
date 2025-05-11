@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SearchBar from './SearchBar';
 import './Style/profile.css';
 import './Style/main.css';
 import logo from './Images/logo2.png';
@@ -17,6 +18,7 @@ function Main() {
       <div className="sidebar">
         <img src={logo} alt="Logo" />
         <h1>The Park</h1>
+        <SearchBar/>
         <div className="nav">
           <div>ℹ️ <Link to="/about">About Us</Link></div>
           <div>👤 <Link to="/profile">My Profile</Link></div>
