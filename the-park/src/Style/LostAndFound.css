@@ -1,211 +1,242 @@
-/* Main Structure */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 .lost-page {
-    display: flex;
-    background-color: #EEF1F4;
-    min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
-  }
-  
+  display: flex;
+  min-height: 100vh;
+  background-color: #EEF1F4;
+}
+
+/* Sidebar fixed */
+.sidebar {
+  width: 240px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #F9F9F9;    /* off‑white to match other pages */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  padding: 40px 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Logo & Title */
+.sidebar-logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+.park-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.nav-links {
+  width: 100%;
+}
+.nav-links a {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  color: #4A4A4A;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #4CAF50;
+  color: #FFF;
+}
+.nav-links a:focus {
+  outline: none;
+}
+
+.lost-main {
+  margin-left: 240px;  
+  flex: 1;
+  padding: 40px;
+}
+
+/* Heading & Tabs */
+.lost-main h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.tab-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.tab-buttons button {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: #A1C398;
+  color: #FFF;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.tab-buttons button.active,
+.tab-buttons button:hover {
+  background-color: #4CAF50;
+}
+.tab-buttons button:active {
+  transform: translateY(1px);
+}
+
+/* Form container */
+.form-box {
+  background-color: #FFF;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 40px;
+}
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #DDD;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.input-group {
+  position: relative;
+}
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #888;
+}
+.input-group input {
+  padding-left: 40px;
+}
+
+/* File upload */
+.file-upload {
+  margin: 16px 0;
+  text-align: center;
+}
+.upload-label {
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+.upload-label .icon {
+  margin-right: 6px;
+}
+
+.preview img {
+  display: block;
+  max-width: 200px;
+  margin: 12px auto;
+  border-radius: 8px;
+}
+
+/* Submit button */
+.form-box button {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  background-color: #4CAF50;
+  color: #FFF;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Feed grid & cards */
+.feed-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.pet-card {
+  background: #FFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  position: relative;
+  transition: transform 0.1s;
+}
+.pet-card:hover {
+  transform: translateY(-4px);
+}
+.pet-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 16px;
+}
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.tag.lost { background: #f44336; color: #FFF; }
+.tag.found { background: #4CAF50; color: #FFF; }
+.card-content h3 {
+  margin: 6px 0;
+  font-size: 18px;
+}
+.card-content p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* Delete button */
+.delete-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  color: #777;
+  margin-top: 40px;
+}
+.empty-state .empty-img {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
   .sidebar {
-    width: 250px;
-    background-color: #CDE4D4;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    width: 100%;
+    flex-direction: row;
     align-items: center;
-    padding-top: 40px;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: none;
   }
-  
-  .sidebar-logo {
-    width: 113.4px;
-    height: 167px;
-    object-fit: contain;
-  }
-  
-  .park-title {
-    margin-top: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  .nav-links {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-  }
-  
-  .nav-links a.active,
-  .nav-links a:hover {
-    color: #4CAF50;
-  }
-  
-  /* Main Area */
+  .sidebar-logo { display: none; }
   .lost-main {
-    flex: 1;
-    padding: 40px 60px;
+    margin-left: 0;
+    padding: 20px;
   }
-  
-  .lost-main h1 {
-    font-size: 36px;
-    margin-bottom: 24px;
-  }
-  
-  .tab-buttons {
-    margin-bottom: 20px;
-  }
-  
-  .tab-buttons button {
-    margin-right: 10px;
-    padding: 12px 25px;
-    border: none;
-    background-color: #A1C398;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .tab-buttons button.active,
-  .tab-buttons button:hover {
-    background-color: #4CAF50;
-    transform: translateY(-2px);
-  }
-  
-  /* Form Box */
-  .form-box {
-    background-color: #fff;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-  }
-  
-  .form-box input,
-  .form-box textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .input-group {
-    position: relative;
-  }
-  
-  .input-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #888;
-  }
-  
-  .input-group input {
-    padding-left: 40px;
-  }
-  
-  /* Feed Grid */
-  .feed-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-  
-  /* Pet Card */
-  .pet-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    position: relative;
-    transition: transform 0.2s;
-  }
-  
-  .pet-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .pet-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card-content {
-    padding: 15px;
-  }
-  
-  .tag {
-    display: inline-block;
-    background-color: #ccc;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 12px;
-    margin-bottom: 8px;
-  }
-  
-  .tag.lost {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .tag.found {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .description {
-    margin: 8px 0;
-  }
-  
-  .delete-btn {
-    background: none;
-    border: none;
-    color: #f44336;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  
-  /* Empty State */
-  .empty-state {
-    margin-top: 40px;
-    text-align: center;
-    color: #777;
-  }
-  
-  .empty-img {
-    width: 200px;
-    margin-bottom: 20px;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .lost-page {
-      flex-direction: column;
-    }
-    .sidebar {
-      width: 100%;
-      flex-direction: row;
-      justify-content: center;
-    }
-    .lost-main {
-      padding: 20px;
-    }
-    .posted-time {
-        margin-top: 8px;
-        font-size: 13px;
-        color: #888;
-      }      
-  }
-  
+  .tab-buttons { flex-direction: column; }
+}
