@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Style/profile.css';
 import logo from './Images/logo2.png';
 import pawPlaceholder from './Images/pawPlaceholder.png';
+import API_BASE_URL from './confi';
 
 function Profile() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function Profile() {
         navigate('/');
         return;
       } try {
-        const response = await fetch(`http://localhost:5001/api/user/profile/${userId}`);
+        const response = await fetch(`${API_BASE_URL}/api/user/profile/${userId}`);
         if (!response.ok) {
           throw new Error('User data not found');
         }
@@ -56,7 +57,8 @@ function Profile() {
       <div className="main-content">
         <div className="profile-header">
           <div className="avatar">
-            <img src={userData.avatar || pawPlaceholder} alt="User Avatar" className="profileAvatar" />
+            <img src={userData.profilePic ? `${API_BASE_URL}/${userData.profilePic}` : pawPlaceholder} alt="User Avatar" className="profileAvatar" />
+
           </div>
           <div className="profile-details">
             <h1>@{userData.username}</h1>

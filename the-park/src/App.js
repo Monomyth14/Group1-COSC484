@@ -79,7 +79,7 @@ function Home() {
           <button className="login-button" onClick={handleLogin}>Log in</button>
           <button className="forgotpw-button">Forgot Password</button>
           <br /><br />
-          <button className="signup-button" onClick={() => navigate('/signup')}>Create New Account</button>
+          <button className="signup-button" onClick={() => navigate('/ProfileSignup')}>Create New Account</button>
         </div>
       </div>
     </div>
@@ -100,6 +100,7 @@ function AppRoutes() {
       <Route path="/About" element={<About />} />
       <Route path="/CreatePost" element={<CreatePost />} />
       <Route path="/PetEvents" element={<PetEvents />} />
+      <Route pathe="/ProfileSignup" element={<ProfileSignup />} />
     </Routes>
   );
 }

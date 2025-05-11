@@ -51,7 +51,8 @@ function ProfileSignup() {
 
       if (response.ok) {
         console.log('Account sign up was successfully:', result);
-        navigate('/profile', {state: formData}); // Redirects to the home page after successful signup
+        alert('Account created successfully! Please log in.');
+        navigate('/'); //redirect to login page
       } else {
         alert(result.error || 'Registration failed');
       }
@@ -138,7 +139,7 @@ function ProfileSignup() {
             />
 
             <div className="buttons">
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit"/>
               <button type="button" onClick={() => navigate('/')}>Cancel</button>
             </div>
           </fieldset>

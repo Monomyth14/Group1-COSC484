@@ -5,12 +5,24 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
+const fs = require('fs');
+const path = require('path');
+
 
 router.post('/register', upload.single('profilePic'), async (req, res) => {
   console.log('Hit /register route'); // checks route
   try {
     const { username, profilename, email, password, bio } = req.body;
-    const profilePic = req.file ? req.file.path : null;
+    let profilePic = null;
+    if (req.file) {
+      console.log('Uploaded original filename:', req.file.originalname);
+      const ext = path.extname(req.file.originalname);
+      const newFilename = req.file.filename + ext;
+      const newPath = path.join(__dirname, '..', 'uploads', newFilename);
+      fs.renameSync(req.file.path, newPath);
+      profilePic = `uploads/${newFilename}`;
+    }
+
 
     if (!username || !profilename || !email || !password) {
         return res.status(400).json({ error: 'All fields are required.' });
@@ -81,6 +93,8 @@ router.get('/profile/:userId', async (req, res) => {
       profilename: user.profilename,
       email: user.email,
       bio: user.bio,
+      profilePic: user.profilePic,
+      posts: user.posts,
       groupsOwned: user.groupsOwned,
       groupsJoined: user.groupsJoined,
     });
