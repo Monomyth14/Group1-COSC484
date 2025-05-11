@@ -17,7 +17,6 @@ function Main() {
     <div className="page-container">
       <div className="sidebar">
         <img src={logo} alt="Logo" />
-        <h1>The Park</h1>
         <SearchBar/>
         <div className="nav">
           <div>ℹ️ <Link to="/about">About Us</Link></div>
