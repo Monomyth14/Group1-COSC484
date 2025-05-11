@@ -5,29 +5,51 @@ import './Style/EditProfilePage.css';
 import logo from './Images/logo2.png';
 import pawPlaceholder from './Images/pawPlaceholder.png';
 
-const TAG_SUGGESTIONS = ['Curious', 'Fluffy', 'Clean', 'Shy', 'Playful', 'Kind','Anxious'];
-
-function Sidebar() {
-  const items = [
-    { to: '/about', label: 'About Page', emoji: 'ℹ️' },
-    { to: '/profile', label: 'Profile Page', emoji: '👤' },
-    { to: '/edit-profile', label: 'Edit Profile', emoji: '✏️' },
-    { to: '/post', label: 'Create Post', emoji: '📝' },
-    { to: '/signup', label: 'Group Sign Up', emoji: '👥' },
-  ];
+const TAG_SUGGESTIONS = [
+  // Playful/Energetic
+  'Playful', 'Energetic', 'Zippy', 'Bouncy', 'Frisky', 'Spunky',
   
+  // Calm/Relaxed
+  'Chill', 'Mellow', 'Laidback', 'Relaxed', 'Easygoing', 'Zen',
+  
+  // Friendly/Social
+  'Friendly', 'Sociable', 'Outgoing', 'Affectionate', 'Loving', 'Cuddly',
+  
+  // Shy/Nervous
+  'Shy', 'Timid', 'Reserved', 'Anxious', 'Nervous', 'Cautious',
+  
+  // Intelligent
+  'Smart', 'Clever', 'Bright', 'Quick', 'Inquisitive', 'Curious',
+  
+  // Loyal/Protective
+  'Loyal', 'Protective', 'Devoted', 'Faithful', 'Guardian', 'Watchful',
+  
+  // Funny/Quirky
+  'Silly', 'Goofy', 'Wacky', 'Quirky', 'Entertaining', 'Clumsy',
+  
+  // Physical Traits
+  'Fluffy', 'Fuzzy', 'Soft', 'Sleek', 'Shiny', 'Spotty', 'Striped',
+  
+  // Habits
+  'Vocal', 'Chatty', 'Talkative', 'Quiet', 'Snorer', 'Foodie',
+  
+  // Training
+  'Trained', 'Obedient', 'Mannerly', 'Polite', 'Wild', 'Mischievous'
+];
+function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-card">
         <img src={logo} alt="The Park Logo" className="logo-img" />
         <h2 className="logo-text">The Park</h2>
         <nav className="menu">
-          {items.map(({ to, label, emoji }) => (
-            <Link key={to} to={to} className="menu-item">
-              <span className="menu-emoji">{emoji}</span>
-              <span className="menu-label">{label}</span>
-            </Link>
-          ))}
+          <div>ℹ️ <Link to="/about">About Page</Link></div>
+          <div>👤 <Link to="/profile">Profile Page</Link></div>
+          <div>✏️ <Link to="/edit-profile">Edit Profile</Link></div>
+          <div>📝 <Link to="/post">Create Post</Link></div>
+          <div>👥 <Link to="/signup">Group Sign Up</Link></div>
+          <div>🐾 <Link to="/pet-events">Pet Events</Link></div>
+          <div>🏠 <Link to="/main">Main</Link></div>
         </nav>
       </div>
     </aside>
