@@ -3,11 +3,14 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
-router.post('/register', async (req, res) => {
+router.post('/register', upload.single('profilePic'), async (req, res) => {
   console.log('Hit /register route'); // checks route
   try {
     const { username, profilename, email, password, bio } = req.body;
+    const profilePic = req.file ? req.file.path : null;
 
     if (!username || !profilename || !email || !password) {
         return res.status(400).json({ error: 'All fields are required.' });
@@ -26,7 +29,7 @@ router.post('/register', async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     
-    const newUser = new User({ username, profilename, email, password: hashedPassword, bio });
+    const newUser = new User({ username, profilename, email, password: hashedPassword, bio, profilePic });
     await newUser.save();
 
     res.status(201).json({ message: 'User created.' });
@@ -62,6 +65,28 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error!' });
+  }
+});
+
+router.get('/profile/:userId', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId)
+      .populate('groupsOwned', 'groupName')
+      .populate('groupsJoined', 'groupName');
+
+    if (!user) return res.status(404).json({ error: 'User not found' });
+
+    res.json({
+      username: user.username,
+      profilename: user.profilename,
+      email: user.email,
+      bio: user.bio,
+      groupsOwned: user.groupsOwned,
+      groupsJoined: user.groupsJoined,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error fetching profile data' });
   }
 });
 

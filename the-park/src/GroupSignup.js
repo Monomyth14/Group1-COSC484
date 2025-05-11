@@ -1,30 +1,63 @@
 // GroupSignup.js
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import logo from './logo2.png';
-import './signup.css';
+import React, { useState } from 'react';
+import {Link, useNavigate } from 'react-router-dom';
+import logo from './Images/logo2.png';
+import './Style/signup.css';
 
 const GroupSignup = () => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    groupName: '',
+    description: '',
+  });
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
-    const groupName = form.groupName.value;
-    const description = form.description.value;
+    const token = localStorage.getItem('token');
 
-    navigate('/groupPage', { state: { groupName, description } });
+    try {
+      const response = await fetch('http://localhost:5001/api/groups/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        console.log('Group created:', result);
+        navigate('/groupPage', { state: result.group });
+      } else {
+        alert(result.error || 'Group creation failed.');
+      }
+    } catch (err) {
+      console.error('Group creation error:', err);
+      alert('An error occurred. Please try again.');
+    }
   };
 
   return (
     <div className="container">
       <div className="sidebar">
-        <img src={logo} alt="Tree Logo" />
-        <h1>The Park</h1>
+        <img src={logo} alt="Logo" />
         <div className="nav">
-          <div>ℹ️ <Link to="/about">About Us</Link></div>
-          <div>🔔 Notifications</div>
-          <div>👤 Account</div>
+          <div onClick={() => navigate('/Main')}>🏠 Home</div>
+            <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
+            <div onClick={() => navigate('/profile')}>👤 My Profile</div>
+            <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
+            <div onClick={() => navigate('/GroupSignup')}>👥 Create Group</div>
+            <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
+            <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
         </div>
       </div>
 
@@ -33,14 +66,30 @@ const GroupSignup = () => {
         <form onSubmit={handleSubmit} id="groupForm">
           <fieldset>
             <label htmlFor="groupName">Group Name:</label>
-            <input type="text" id="groupName" name="groupName" required />
+            <input
+              type="text"
+              id="groupName"
+              name="groupName"
+              value={formData.groupName}
+              onChange={handleChange}
+              required
+            />
 
             <label htmlFor="description">Description:</label>
-            <input type="text" id="description" name="description" required />
+            <input
+              type="text"
+              id="description"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              required
+            />
 
             <div className="buttons">
               <input type="submit" value="Submit" />
-              <button type="button" onClick={() => navigate('/')}>Cancel</button>
+              <button type="button" onClick={() => navigate('/Main')}>
+                Cancel
+              </button>
             </div>
           </fieldset>
         </form>

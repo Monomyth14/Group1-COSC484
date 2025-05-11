@@ -28,9 +28,20 @@ mongoose.connect(process.env.MONGO_URI, {
     process.exit(1);
   });
 
+  app.use('/uploads', express.static('uploads'));
+  
 // Routes
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/user', userRoutes);
+
+const groupRoutes = require('./routes/groupRoutes');
+app.use('/api/groups', groupRoutes); 
+
+const postRoutes = require('./routes/postRoutes');
+app.use('/api/post', postRoutes); 
+
+const lostFoundRoutes = require('./routes/lostFoundRoutes');
+app.use('/api/lostfound', lostFoundRoutes);
 
 // browser testing
 app.get('/', (req, res) => {

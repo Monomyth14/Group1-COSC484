@@ -1,0 +1,13 @@
+.main-about {
+  margin-left: 180px;
+  padding: 40px;
+  width: calc(100% - 250px);
+  overflow-y: auto;
+  text-align: center;
+}
+
+.aboutPage-container {
+  display: flex;
+  height: 100vh;
+}
+
