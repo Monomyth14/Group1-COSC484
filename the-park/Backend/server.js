@@ -39,6 +39,10 @@ app.use('/api/post', postRoutes);
 const lostFoundRoutes = require('./routes/lostFoundRoutes');
 app.use('/api/lostfound', lostFoundRoutes);
 
+const path = require('path');
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
 // browser testing
 app.get('/', (req, res) => {
   res.send('API is running!');
