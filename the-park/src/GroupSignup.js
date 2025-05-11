@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import {Link, useNavigate } from 'react-router-dom';
 import logo from './Images/logo2.png';
-import './Style/signup.css';
+import './Style/groupSignup.css';
 
 const GroupSignup = () => {
   const navigate = useNavigate();
@@ -61,8 +61,10 @@ const GroupSignup = () => {
         </div>
       </div>
 
-      <div className="main">
-        <h1>Group Signup Page</h1>
+      <div className="mainSignup">
+        <h1>Group Sign Up</h1>
+        <p>Share your love for pets with others in your area.</p>
+        <p>Fill out the form below to create a new group.</p>
         <form onSubmit={handleSubmit} id="groupForm">
           <fieldset>
             <label htmlFor="groupName">Group Name:</label>
