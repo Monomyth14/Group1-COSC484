@@ -28,7 +28,7 @@ function Main() {
     </div>
 
       <div className="main-content">
-        <h1 className="profile-title">Welcome to The Park!</h1>
+        <h1 className="profile-title">Welcome to The Park</h1>
         <div className="main-links">
           <Link to="/profile" className="main-button">My Profile</Link>
           <Link to="/groupSignup" className="main-button">Create Group</Link>
@@ -47,7 +47,6 @@ function Main() {
 
       <div className="profile-actions">
         <h3>Profile Actions</h3>
-        <button onClick={() => navigate('/EditProfilePage')}>Edit Profile</button>
         <button onClick={handleLogout}>Log Out</button>
       </div>
     </div>
