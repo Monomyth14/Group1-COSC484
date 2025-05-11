@@ -51,8 +51,9 @@ const GroupSignup = () => {
       <div className="sidebar">
         <img src={logo} alt="Logo" />
         <div className="nav">
-          <div>ℹ️ <Link to="/about">About Us</Link></div>
+          <div>🏠 <Link to="/Main">Home</Link></div>
           <div>👤 <Link to="/profile">My Profile</Link></div>
+          <div>📜 <Link to="/post">Create Post</Link></div>
           <div>👥 <Link to="/groupSignup">Create Group</Link></div>
           <div>🔍 <Link to="/lost">Lost and Found</Link></div>
           <div>🎉 <Link to="/petevents">Pet Events</Link></div>

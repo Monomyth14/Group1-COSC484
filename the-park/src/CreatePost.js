@@ -37,6 +37,7 @@ function CreatePost() {
         <div className="nav">
           <div>🏠 <Link to="/Main">Home</Link></div>
           <div>👤 <Link to="/profile">My Profile</Link></div>
+          <div>📜 <Link to="/post">Create Post</Link></div>
           <div>👥 <Link to="/groupSignup">Create Group</Link></div>
           <div>🔍 <Link to="/lost">Lost and Found</Link></div>
           <div>🎉 <Link to="/petevents">Pet Events</Link></div>

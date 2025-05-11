@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Style/LostAndFound.css';
+import { Link, useNavigate } from 'react-router-dom';
 import logo2 from './Images/logo2.png';
 import cuteDog from './Images/cute-dog.jpg';
 import { FaCamera, FaMapMarkerAlt, FaTrash } from 'react-icons/fa';
@@ -161,16 +162,13 @@ function LostAndFound() {
     <div className="lost-page">
       <div className="sidebar">
         <img src={logo2} alt="Logo" className="sidebar-logo" />
-        <h2 className="park-title">The Park</h2>
         <nav className="nav-links">
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-          <a href="/profile">My Profile</a>
-          <a href="/group">Group Profile</a>
-          <a href="/lost" className="active">Lost &amp; Found</a>
-          <a href="/events">Pet Events</a>
-          <a href="/notifications">Notifications</a>
-          <a href="/account">Account</a>
+          <div>🏠 <Link to="/Main">Home</Link></div>
+          <div>👤 <Link to="/profile">My Profile</Link></div>
+          <div>📜 <Link to="/post">Create Post</Link></div>
+          <div>👥 <Link to="/groupSignup">Create Group</Link></div>
+          <div>🔍 <Link to="/lost">Lost and Found</Link></div>
+          <div>🎉 <Link to="/petevents">Pet Events</Link></div>
         </nav>
       </div>
       <div className="lost-main">
