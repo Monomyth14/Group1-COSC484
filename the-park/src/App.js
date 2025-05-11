@@ -90,16 +90,16 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/main" element={<Main />} />
-      <Route path="/lost" element={<LostAndFound />} />
-      <Route path="/signup" element={<ProfileSignup />} />
-      <Route path="/groupSignup" element={<CreateGroup/>} />
+      <Route path="/Main" element={<Main />} />
+      <Route path="/LostAndFound" element={<LostAndFound />} />
+      <Route path="/ProfileSignup" element={<ProfileSignup />} />
+      <Route path="/GroupSignup" element={<CreateGroup/>} />
       <Route path="/groupPage" element={<groupPage/>}/>
       <Route path="/profile" element={<Profile />} />
-      <Route path="/edit-profile" element={<EditProfilePage />} /> 
-      <Route path="/about" element={<About />} />
-      <Route path="/post" element={<CreatePost />} />
-      <Route path="/petevents" element={<PetEvents />} />
+      <Route path="/EditProfilePage" element={<EditProfilePage />} /> 
+      <Route path="/About" element={<About />} />
+      <Route path="/CreatePost" element={<CreatePost />} />
+      <Route path="/PetEvents" element={<PetEvents />} />
     </Routes>
   );
 }
