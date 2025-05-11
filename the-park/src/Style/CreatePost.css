@@ -1,9 +1,13 @@
 .create-post-container {
-    position: absolute;
+    margin-left: 180px;
+    margin-right: 180px !important;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 100vh;
+    padding: 40px;
     text-align: center;
-    margin: auto;
-    width: 100%;         
-    padding: 200px;           
+    background-color: #fef9f4 !important;
   }
   
   .create-post-container h2 {
