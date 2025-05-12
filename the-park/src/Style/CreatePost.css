@@ -1,75 +1,86 @@
 .create-post-container {
-    margin-left: 180px;
-    margin-right: 180px !important;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    height: 100vh;
-    padding: 40px;
-    text-align: center;
-    background-color: #fef9f4 !important;
-  }
-  
-  .create-post-container h2 {
-    font-size: 24px;
-    text-align: center;
-  }
-  
-  
-  .input-field {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-  }
-  
-  
-  .input-field[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-  }
-  
-  
-  .login-button {
-    padding: 10px 20px;
-    margin: 10px 0;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  
-  .forgotpw-button {
-    padding: 10px 20px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  
-  .login-button:hover {
-    background-color: #45a049;
-  }
-  
-  .create-post-image {
-    margin-top: 30px;
-    width: 500px; /* You can adjust the size */
-    
-  }
+  margin-left: 180px;
+  margin-right: 180px;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 100vh;
+  text-align: center;
+  background-color: #fef9f4;
+}
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+.create-post-container h2 {
+  font-size: 24px;
+  text-align: center;
+  color: #3E5B3F;
+}
+
+.image-upload-box {
+  border: 2px dashed #3E5B3F;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fefefe;
+  margin-bottom: 15px;
+}
+
+.upload-label {
+  display: inline-block;
+  background-color: #3E5B3F;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.login-button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #3E5B3F;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #345034;
+}
+
+.forgotpw-button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  background: none;
+  color: #3E5B3F;
+  text-decoration: underline;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.forgotpw-button:hover {
+  color: #1f351f;
+}
+
+.create-post-image {
+  margin-top: 30px;
+  width: 500px;
+  border-radius: 10px;
+}

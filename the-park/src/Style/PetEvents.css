@@ -1,7 +1,6 @@
 .pet-events-page {
 }
 
-/* Apply background ONLY when main-content is inside PetEvents */
 .pet-events-page .main-content {
   background-image: url('../Images/events-background.png');
   background-size: cover;
