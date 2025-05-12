@@ -18,6 +18,7 @@
 #upcoming-title {
   color: #f1f1f1;
   font-size: 30px;
+  padding: 10px;
 }
 
 .profile-title1 {
@@ -102,6 +103,11 @@ button:hover {
   color: #eef126;
   font-style: italic;
   font-size: 18px;
+}
+
+.feed-grid{
+  display: flex;
+  flex-direction: column;
 }
 
 .form-box {
