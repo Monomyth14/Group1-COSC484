@@ -42,13 +42,14 @@ function Sidebar() {
       <div className="sidebar-card">
         <img src={logo} alt="The Park Logo" className="logo-img" />
         <nav className="menu">          
-          <div>🏠 <Link to="/main">Home</Link></div>
-          <div>ℹ️ <Link to="/about">About Us</Link></div>
-          <div>👤 <Link to="/profile">My Profile</Link></div>          
-          <div>📜 <Link to="/post">Create Post</Link></div>
-          <div>👥 <Link to="/GroupSignup">Create Group</Link></div>
-          <div>🔍 <Link to="/LostAndFound">Lost and Found</Link></div>
-          <div>🎉 <Link to="/PetEvents">Pet Events</Link></div>
+        <div onClick={() => navigate('/Main')}>🏠 Home</div>
+        <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
+        <div onClick={() => navigate('/profile')}>👤 My Profile</div>
+        <div onClick={() => navigate('/EditProfile')}>✏️ Edit Profile</div>
+        <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
+        <div onClick={() => navigate('/GroupSignup')}>👥 Create Group</div>
+        <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
+        <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
         </nav>
       </div>
     </aside>
