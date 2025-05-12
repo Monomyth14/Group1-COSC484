@@ -16,24 +16,25 @@
 
 /* FinalSidebar.css */
 .sidebar {
-  width: 200px;
-  background-color: #a6c2a2;
+  width: 180px;
+  background-color: #a6c2a2 !important;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   height: 100vh;
   overflow-y: auto;
-  z-index: 10;
 }
-
+  
 .sidebar img {
-  width: 100px;
+  width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  order: -999; 
+  margin-bottom: 20px; 
+  max-width: 180px; 
 }
 
 .sidebar h1 {
@@ -43,6 +44,30 @@
   font-weight: bold;
   color: #1f2937;
 }
+
+.sidebar-card {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 14px;
+}
+  
+.sidebar-card a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+  
+.sidebar-card div:hover {
+  color: #3E5B3F !important;
+  cursor: pointer;
+}
+  
+.sidebar-card a:visited {
+  color: #333;
+}
+
 
 .nav {
   margin-top: auto;
@@ -83,28 +108,34 @@
   }
 }
 
-
-
-.logo-img { 
-  width: 48px; 
-  height: 48px;
-  display: block;
-  margin: 0 auto;
+.sidebar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;         /* Full screen height */
+  padding-top: 20px;     /* Space from top */
+  background-color: #a3c19f; /* or whatever green you're using */
+  width: 200px;          /* Adjust as needed */
+  box-sizing: border-box;
 }
 
-.logo-text {
-  margin-top: .75rem; 
-  font-size: 1.35rem;
-  font-weight: 600; 
-  color: #1f2937;
-  text-align: center;
+.logo-img {
+  width: 60px;           /* Adjust size */
+  height: auto;
+  margin-bottom: 20px;   /* Space below logo */
 }
 
 .menu {
-  margin-top: 2.5rem;
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.5rem;
+  margin-top: auto;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.menu div:hover {
+    color: #1a5d1a !important;
 }
 
 .menu-item {

@@ -1,17 +1,18 @@
 .main-about {
-  margin-left: 180px;
-  margin-right: 180px !important;
-  padding: 20px;
+  padding: 40px;
+  max-width: 75%;
+  flex: 1;
+  margin-left: 155px;
+  margin-right: 20px;
+  padding: 40px;
   box-sizing: border-box;
   overflow-y: auto;
   height: 100vh;
-  padding: 40px;
   text-align: center;
-  background-color: #fef9f4 !important;
+  background-color: #fef9f4;
 }
 
 .aboutPage-container {
   display: flex;
   height: 100vh;
 }
-
