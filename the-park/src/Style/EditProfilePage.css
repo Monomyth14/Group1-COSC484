@@ -108,28 +108,34 @@
   }
 }
 
-
-
-.logo-img { 
-  width: 48px; 
-  height: 48px;
-  display: block;
-  margin: 0 auto;
+.sidebar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;         /* Full screen height */
+  padding-top: 20px;     /* Space from top */
+  background-color: #a3c19f; /* or whatever green you're using */
+  width: 200px;          /* Adjust as needed */
+  box-sizing: border-box;
 }
 
-.logo-text {
-  margin-top: .75rem; 
-  font-size: 1.35rem;
-  font-weight: 600; 
-  color: #1f2937;
-  text-align: center;
+.logo-img {
+  width: 60px;           /* Adjust size */
+  height: auto;
+  margin-bottom: 20px;   /* Space below logo */
 }
 
 .menu {
-  margin-top: 2.5rem;
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.5rem;
+  margin-top: auto;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.menu div:hover {
+    color: #1a5d1a !important;
 }
 
 .menu-item {

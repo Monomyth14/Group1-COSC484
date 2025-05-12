@@ -14,6 +14,10 @@ function CreatePost() {
     setCaption(e.target.value);
   };
 
+  const handleLogout = () => {
+    navigate('/');
+  };
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setImage(file);
@@ -98,6 +102,10 @@ function CreatePost() {
         <button className="forgotpw-button" onClick={handleNotNow}>Not Now</button>
 
         <img src={createPostImage} alt="Create Post" className="create-post-image" />
+      </div>
+      <div className="profile-actions">
+        <h3>Profile Actions</h3>
+        <button onClick={handleLogout}>Log Out</button>
       </div>
     </div>
   );

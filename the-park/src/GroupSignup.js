@@ -32,6 +32,10 @@ const GroupSignup = () => {
     }
   };
 
+  const handleLogout = () => {
+    navigate('/');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
@@ -122,6 +126,11 @@ const GroupSignup = () => {
             </div>
           </fieldset>
         </form>
+      </div>
+
+      <div className="profile-actions">
+        <h3>Profile Actions</h3>
+        <button onClick={handleLogout}>Log Out</button>
       </div>
     </div>
   );
