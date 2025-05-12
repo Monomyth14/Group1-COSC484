@@ -217,10 +217,12 @@ body {
   width: 10px;
 }
 
+
 ::-webkit-scrollbar-thumb {
   background-color: #3b7a57;
   border-radius: 10px;
 }
+
 
 ::-webkit-scrollbar-track {
   background-color: #f1f1f1;
