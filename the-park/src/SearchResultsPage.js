@@ -23,37 +23,37 @@ const SearchResultsPage = () => {
 if (!results) return <p>Loading search results...</p>
 
 return (
-    <div className="search-results">
-        <h2> Results for "{query}"</h2>
+  <div className="search-results">
+    <h2>Results for "{query}"</h2>
 
-        <h3>Users</h3>
-        <ul>
-            {results.users.map(user => (
-                <li key={user._id}>{user.username}</li>
-            ))}
-        </ul>
+    <h3>Users</h3>
+    <ul>
+      {results.users?.map(user => (
+        <li key={user._id}>{user.username}</li>
+      )) || <li>No users found</li>}
+    </ul>
 
-        <h3>Events</h3>
-        <ul>
-            {results.events.map(event =>(
-                <li key={event._id}>{event.title}</li>
-            ))}
-        </ul>
+    <h3>Events</h3>
+    <ul>
+      {results.events?.map(event => (
+        <li key={event._id}>{event.title}</li>
+      )) || <li>No events found</li>}
+    </ul>
 
-        <h3>Posts</h3>
-        <ul>
-            {results.posts.map(post =>(
-                <li key={post._id}>{post.caption}</li>
-            ))}
-        </ul>
+    <h3>Posts</h3>
+    <ul>
+      {results.posts?.map(post => (
+        <li key={post._id}>{post.caption}</li>
+      )) || <li>No posts found</li>}
+    </ul>
 
-        <h3>Lost and Found</h3>
-        <ul>
-            {results.lostpets.map(pet =>(
-                <li key={pet._id}>{pet.title}</li>
-            ))}
-        </ul>
-    </div>
+    <h3>Lost and Found</h3>
+    <ul>
+      {results.lostpets?.map(pet => (
+        <li key={pet._id}>{pet.title}</li>
+      )) || <li>No lost pets found</li>}
+    </ul>
+  </div>
 );
 };
 
