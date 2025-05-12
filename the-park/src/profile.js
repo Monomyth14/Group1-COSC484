@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Style/profile.css';
 import logo from './Images/logo2.png';
 import pawPlaceholder from './Images/pawPlaceholder.png';
-import API_BASE_URL from './confi';
+import config from './confi.js';
 
 function Profile() {
   const navigate = useNavigate();
@@ -18,23 +18,28 @@ function Profile() {
       navigate('/');
       return;
     }
-    fetch(`${API_BASE_URL}/api/user/profile/${userId}`)
+    fetch(`${config.API_URL}/api/user/profile/${userId}`)
       .then(res => res.json())
-      .then(setUserData);
+      .then(data => {
+      console.log('Fetched user data:', data);
+      setUserData(data);
+    })
+      .catch(err => {console.error('Error fetching user data:', err);});
 
-    fetch(`${API_BASE_URL}/api/post/mine`, {
+    fetch(`${config.API_URL}/api/post/mine`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
-      .then(setUserPosts);
+      .then(data => setUserPosts(data))
+      .catch(err => { console.error('Error fetching user posts:', err); });
   }, [navigate, token]);
 
   const handleLike = async (postId) => {
-    await fetch(`${API_BASE_URL}/api/post/like/${postId}`, {
+    await fetch(`${config.API_URL}/api/post/like/${postId}`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` }
     });
-    const res = await fetch(`${API_BASE_URL}/api/post/mine`, {
+    const res = await fetch(`${config.API_URL}/api/post/mine`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const updated = await res.json();
@@ -43,7 +48,7 @@ function Profile() {
 
   const handleComment = async (postId) => {
     const text = commentInput[postId];
-    await fetch(`${API_BASE_URL}/api/post/comment/${postId}`, {
+    await fetch(`${config.API_URL}/api/post/comment/${postId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -52,7 +57,7 @@ function Profile() {
       body: JSON.stringify({ text })
     });
     setCommentInput(prev => ({ ...prev, [postId]: '' }));
-    const res = await fetch(`${API_BASE_URL}/api/post/mine`, {
+    const res = await fetch(`${config.API_URL}/api/post/mine`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const updated = await res.json();
@@ -79,7 +84,7 @@ function Profile() {
       <div className="main-content">
         <div className="profile-header">
           <div className="avatar">
-            <img src={userData.profilePic ? `${API_BASE_URL}/${userData.profilePic}` : pawPlaceholder} alt="User Avatar" className="profileAvatar" />
+            <img src={userData.profilePic ? `${config.API_URL}/${userData.profilePic}` : pawPlaceholder} alt="User Avatar" className="profileAvatar" />
           </div>
           <div className="profile-details">
             <h1>@{userData.username}</h1>
@@ -93,7 +98,7 @@ function Profile() {
           {userPosts.map(post => (
             <div key={post._id} className="post" style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '8px', marginBottom: '15px', maxWidth: '400px' }}>
               <p>{post.caption}</p>
-              {post.image && <img src={`${API_BASE_URL}/uploads/${post.image}`} alt="Post" style={{ width: '100%', marginTop: '10px', borderRadius: '6px' }} />}
+              {post.image && <img src={`${config.API_URL}/uploads/${post.image}`} alt="Post" style={{ width: '100%', marginTop: '10px', borderRadius: '6px' }} />}
               <button onClick={() => handleLike(post._id)}>❤️ {post.likes?.length || 0}</button>
               <div style={{ marginTop: '10px' }}>
                 {post.comments.map((c, idx) => (
