@@ -1,40 +1,28 @@
 .pet-events-page {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
+}
+
+/* Apply background ONLY when main-content is inside PetEvents */
+.pet-events-page .main-content {
   background-image: url('../Images/events-background.png');
   background-size: cover;
   background-position: center;
-  padding-left: 300px;
-  
-  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #event-title {
-  color:#f1f1f1;
+  color: #f1f1f1;
   font-size: 75px;
   justify-self: center;
 }
-#upcoming-title{
-  color:#f1f1f1;
+
+#upcoming-title {
+  color: #f1f1f1;
   font-size: 30px;
 }
 
-.sidebar {
-  width: 200px;
-  background-color: #a6c2a2;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  z-index: 10;
+.profile-title1 {
+  color: white;
 }
 
 .sidebar-logo {
@@ -65,21 +53,21 @@
   padding: 40px;
   box-sizing: border-box;
   overflow-y: auto;
-  display:flex;
-
+  display: flex;
 }
 
 form#eventForm {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
   max-width: 600px;
-  display:flex;
+  display: flex;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   margin: 10px 0;
   padding: 0.8rem;
@@ -87,7 +75,6 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
-  
 }
 
 button {
@@ -109,7 +96,7 @@ button:hover {
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .empty-state {
@@ -118,10 +105,6 @@ button:hover {
   font-size: 18px;
 }
 
-.form-box{
-  margin-left: 200px;
-
+.form-box {
+  margin-top: 20px;
 }
-
-
- 

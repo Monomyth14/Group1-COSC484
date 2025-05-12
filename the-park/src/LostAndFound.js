@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import './Style/main.css';
 import './Style/LostAndFound.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import logo2 from './Images/logo2.png';
 import cuteDog from './Images/cute-dog.jpg';
 import { FaCamera, FaMapMarkerAlt, FaTrash } from 'react-icons/fa';
 
 function LostAndFound() {
+  const navigate = useNavigate();
   const [tab, setTab] = useState('lost');
   const [lostPets, setLostPets] = useState([]);
   const [foundPets, setFoundPets] = useState([]);
@@ -159,20 +161,25 @@ function LostAndFound() {
   };
 
   return (
-    <div className="lost-page">
+    <div className="page-container">
+
+      {/* Left Sidebar */}
       <div className="sidebar">
-        <img src={logo2} alt="Logo" className="sidebar-logo" />
-        <nav className="nav-links">
-          <div>🏠 <Link to="/Main">Home</Link></div>
-          <div>👤 <Link to="/profile">My Profile</Link></div>
-          <div>📜 <Link to="/post">Create Post</Link></div>
-          <div>👥 <Link to="/groupSignup">Create Group</Link></div>
-          <div>🔍 <Link to="/lost">Lost and Found</Link></div>
-          <div>🎉 <Link to="/petevents">Pet Events</Link></div>
-        </nav>
+        <img src={logo2} alt="Logo" />
+        <div className="nav">
+          <div onClick={() => navigate('/Main')}>🏠 Home</div>
+          <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
+          <div onClick={() => navigate('/profile')}>👤 My Profile</div>
+          <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
+          <div onClick={() => navigate('/GroupSignup')}>👥 Create Group</div>
+          <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
+          <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
+        </div>
       </div>
-      <div className="lost-main">
-        <h1>Lost &amp; Found Pets</h1>
+
+      {/* Main Content */}
+      <div className="main-content">
+        <h1 className="profile-title">Lost &amp; Found Pets</h1>
         <div className="tab-buttons">
           <button onClick={() => setTab('lost')} className={tab === 'lost' ? 'active' : ''}>Report Lost</button>
           <button onClick={() => setTab('found')} className={tab === 'found' ? 'active' : ''}>Report Found</button>
@@ -195,6 +202,12 @@ function LostAndFound() {
             {renderFeed(foundPets, false)}
           </>
         )}
+      </div>
+
+      {/* Right Sidebar (Profile Actions) */}
+      <div className="profile-actions">
+        <h3>Profile Actions</h3>
+        <button onClick={() => navigate('/')}>Log Out</button>
       </div>
     </div>
   );
