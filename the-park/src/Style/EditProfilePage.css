@@ -16,24 +16,25 @@
 
 /* FinalSidebar.css */
 .sidebar {
-  width: 200px;
-  background-color: #a6c2a2;
+  width: 180px;
+  background-color: #a6c2a2 !important;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
-  left: 0;
   top: 0;
+  left: 0;
   height: 100vh;
   overflow-y: auto;
-  z-index: 10;
 }
-
+  
 .sidebar img {
-  width: 100px;
+  width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  order: -999; 
+  margin-bottom: 20px; 
+  max-width: 180px; 
 }
 
 .sidebar h1 {
@@ -43,6 +44,30 @@
   font-weight: bold;
   color: #1f2937;
 }
+
+.sidebar-card {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 14px;
+}
+  
+.sidebar-card a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+  
+.sidebar-card div:hover {
+  color: #3E5B3F !important;
+  cursor: pointer;
+}
+  
+.sidebar-card a:visited {
+  color: #333;
+}
+
 
 .nav {
   margin-top: auto;

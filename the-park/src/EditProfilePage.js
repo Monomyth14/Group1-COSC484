@@ -36,20 +36,19 @@ const TAG_SUGGESTIONS = [
   // Training
   'Trained', 'Obedient', 'Mannerly', 'Polite', 'Wild', 'Mischievous'
 ];
-function Sidebar() {
+function Sidebar() {  
   return (
     <aside className="sidebar">
       <div className="sidebar-card">
         <img src={logo} alt="The Park Logo" className="logo-img" />
-        <h2 className="logo-text">The Park</h2>
-        <nav className="menu">
-          <div>ℹ️ <Link to="/about">About Page</Link></div>
-          <div>👤 <Link to="/profile">Profile Page</Link></div>
-          <div>✏️ <Link to="/edit-profile">Edit Profile</Link></div>
-          <div>📝 <Link to="/post">Create Post</Link></div>
-          <div>👥 <Link to="/signup">Group Sign Up</Link></div>
-          <div>🐾 <Link to="/pet-events">Pet Events</Link></div>
-          <div>🏠 <Link to="/main">Main</Link></div>
+        <nav className="menu">          
+          <div>🏠 <Link to="/main">Home</Link></div>
+          <div>ℹ️ <Link to="/about">About Us</Link></div>
+          <div>👤 <Link to="/profile">My Profile</Link></div>          
+          <div>📜 <Link to="/post">Create Post</Link></div>
+          <div>👥 <Link to="/GroupSignup">Create Group</Link></div>
+          <div>🔍 <Link to="/LostAndFound">Lost and Found</Link></div>
+          <div>🎉 <Link to="/PetEvents">Pet Events</Link></div>
         </nav>
       </div>
     </aside>

@@ -19,12 +19,12 @@ function Main() {
         <img src={logo} alt="Logo" />
         <div className="nav">
           <div onClick={() => navigate('/Main')}>🏠 Home</div>
-            <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
-            <div onClick={() => navigate('/profile')}>👤 My Profile</div>
-            <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
-            <div onClick={() => navigate('/GroupSignup')}>👥 Create Group</div>
-            <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
-            <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
+          <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
+          <div onClick={() => navigate('/profile')}>👤 My Profile</div>
+          <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
+          <div onClick={() => navigate('/GroupSignup')}>👥 Create Group</div>
+          <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
+          <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
         </div>
       </div>
 

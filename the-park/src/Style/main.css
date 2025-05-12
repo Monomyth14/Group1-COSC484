@@ -12,7 +12,7 @@ body {
   
   .sidebar {
     width: 180px;
-    background-color: #a6c2a2;
+    background-color: #a6c2a2 !important;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -50,8 +50,8 @@ body {
     font-weight: bold;
   }
   
-  .nav a:hover {
-    color: #1a5d1a;
+  .nav div:hover {
+    color: #3E5B3F !important;
   }
   
   .nav a:visited {
@@ -126,7 +126,7 @@ body {
   
   .profile-actions {
     width: 250px;
-    background-color: #fefefe;
+    background-color: #a6c2a2 !important;
     padding: 20px;
     box-sizing: border-box;
     position: fixed;
