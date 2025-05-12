@@ -1,6 +1,5 @@
-// GroupSignup.js
 import React, { useState } from 'react';
-import {Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from './Images/logo2.png';
 import './Style/groupSignup.css';
 
@@ -18,10 +17,10 @@ const GroupSignup = () => {
     const { name, value, files } = e.target;
 
     if (name === 'groupProfilePic' && files[0]) {
-      const file = files [0];
+      const file = files[0];
       setFormData((prevData) => ({
         ...prevData,
-        profilePic: files[0],
+        groupProfilePic: file,
       }));
       setImagePreview(URL.createObjectURL(file));
     } else {
@@ -39,21 +38,27 @@ const GroupSignup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
+    const form = new FormData();
+
+    form.append('groupName', formData.groupName);
+    form.append('description', formData.description);
+    if (formData.groupProfilePic) {
+      form.append('groupProfilePic', formData.groupProfilePic);
+    }
 
     try {
       const response = await fetch('http://localhost:5001/api/groups/register', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData),
+        body: form,
       });
 
       const result = await response.json();
       if (response.ok) {
         console.log('Group created:', result);
-        navigate(`/groupPage/${result.group._id}`);      
+        navigate(`/groupPage/${result.group._id}`);
       } else {
         alert(result.error || 'Group creation failed.');
       }
@@ -69,12 +74,12 @@ const GroupSignup = () => {
         <img src={logo} alt="Logo" />
         <div className="nav">
           <div onClick={() => navigate('/Main')}>🏠 Home</div>
-            <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
-            <div onClick={() => navigate('/profile')}>👤 My Profile</div>
-            <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
-            <div onClick={() => navigate('/groupPage')}>👥 Group Page</div>
-            <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
-            <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
+          <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
+          <div onClick={() => navigate('/profile')}>👤 My Profile</div>
+          <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
+          <div onClick={() => navigate('/groupPage')}>👥 Group Page</div>
+          <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
+          <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
         </div>
       </div>
 
@@ -84,15 +89,21 @@ const GroupSignup = () => {
         <p>Fill out the form below to create a new group.</p>
         <form onSubmit={handleSubmit} id="groupForm">
           <fieldset>
-            <div className='avatarPlaceholder'>
-              {imagePreview ? ( <img src={imagePreview} alt= "Profile Preview" className='profileImage'/>) : (<p>Upload Image</p>)}
+            <div className="avatarPlaceholder">
+              {imagePreview ? (
+                <img src={imagePreview} alt="Profile Preview" className="profileImage" />
+              ) : (
+                <p>Upload Image</p>
+              )}
             </div>
             <div className="file-upload">
-              <label htmlFor="groupProfilePic" className="upload-button">Upload Profile Picture</label>
+              <label htmlFor="groupProfilePic" className="upload-button">
+                Upload Group Photo
+              </label>
               <input
                 type="file"
-                id="profilePic"
-                name="profilePic"
+                id="groupProfilePic"
+                name="groupProfilePic"
                 accept="image/*"
                 onChange={handleChange}
               />

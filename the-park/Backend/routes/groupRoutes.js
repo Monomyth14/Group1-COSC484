@@ -1,14 +1,25 @@
-// routes for groups
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const path = require('path');
 const Group = require('../models/group');
-const authenticateToken = require('../middleware/authenticateToken'); 
+const authenticateToken = require('../middleware/authenticateToken');
 
-router.post('/register', authenticateToken, async (req, res) => {
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, 'uploads/'),
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    cb(null, `${Date.now()}-${Math.round(Math.random() * 1E9)}${ext}`);
+  }
+});
+const upload = multer({ storage });
+
+router.post('/register', authenticateToken, upload.single('groupProfilePic'), async (req, res) => {
   console.log('Hit /groups/register route');
   try {
     const { groupName, description } = req.body;
     const ownerId = req.user.userId;
+    const groupProfilePic = req.file ? req.file.filename : null;
 
     if (!groupName || !description) {
       return res.status(400).json({ error: 'Group name and description are required.' });
@@ -19,7 +30,7 @@ router.post('/register', authenticateToken, async (req, res) => {
       return res.status(400).json({ error: 'Group name already exists.' });
     }
 
-    const newGroup = new Group({ groupName, description, ownerId });
+    const newGroup = new Group({ groupName, description, groupProfilePic, ownerId });
     await newGroup.save();
 
     res.status(201).json({ message: 'Group created successfully.', group: newGroup });
@@ -29,11 +40,10 @@ router.post('/register', authenticateToken, async (req, res) => {
   }
 });
 
+
 router.get('/groups/:groupId', async (req, res) => {
   console.log('Hit GET /groups/:groupId route');
   try {
-    console.log('Requested Group ID:', req.params.groupId);
-
     const group = await Group.findById(req.params.groupId)
       .populate('ownerId', 'username profilename')
       .populate('members', 'username')
@@ -48,8 +58,6 @@ router.get('/groups/:groupId', async (req, res) => {
     if (!group) {
       return res.status(404).json({ error: 'Group not found' });
     }
-
-    console.log('Sending group data:', group);
 
     res.json({
       groupName: group.groupName,
