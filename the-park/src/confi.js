@@ -1,2 +1,5 @@
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5001';
-export default API_BASE_URL;
+const config = {
+  API_URL: "http://the-park-backend-env.eba-ji7k2kri.us-east-1.elasticbeanstalk.com",
+};
+
+export default config;
