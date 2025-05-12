@@ -29,4 +29,40 @@ router.post('/register', authenticateToken, async (req, res) => {
   }
 });
 
+router.get('/groups/:groupId', async (req, res) => {
+  console.log('Hit GET /groups/:groupId route');
+  try {
+    console.log('Requested Group ID:', req.params.groupId);
+
+    const group = await Group.findById(req.params.groupId)
+      .populate('ownerId', 'username profilename')
+      .populate('members', 'username')
+      .populate({
+        path: 'groupPosts',
+        populate: {
+          path: 'author',
+          select: 'username'
+        }
+      });
+
+    if (!group) {
+      return res.status(404).json({ error: 'Group not found' });
+    }
+
+    console.log('Sending group data:', group);
+
+    res.json({
+      groupName: group.groupName,
+      description: group.description,
+      groupProfilePic: group.groupProfilePic,
+      owner: group.ownerId,
+      members: group.members,
+      posts: group.groupPosts,
+    });
+  } catch (err) {
+    console.error('Error fetching group:', err);
+    res.status(500).json({ error: 'Failed to fetch group data' });
+  }
+});
+
 module.exports = router;

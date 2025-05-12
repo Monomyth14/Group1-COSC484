@@ -6,17 +6,30 @@ import './Style/groupSignup.css';
 
 const GroupSignup = () => {
   const navigate = useNavigate();
+  const [imagePreview, setImagePreview] = useState(null);
+
   const [formData, setFormData] = useState({
     groupName: '',
     description: '',
+    groupProfilePic: null,
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    const { name, value, files } = e.target;
+
+    if (name === 'groupProfilePic' && files[0]) {
+      const file = files [0];
+      setFormData((prevData) => ({
+        ...prevData,
+        profilePic: files[0],
+      }));
+      setImagePreview(URL.createObjectURL(file));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -36,7 +49,7 @@ const GroupSignup = () => {
       const result = await response.json();
       if (response.ok) {
         console.log('Group created:', result);
-        navigate('/groupPage', { state: result.group });
+        navigate(`/groupPage/${result.group._id}`);      
       } else {
         alert(result.error || 'Group creation failed.');
       }
@@ -55,7 +68,7 @@ const GroupSignup = () => {
             <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
             <div onClick={() => navigate('/profile')}>👤 My Profile</div>
             <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
-            <div onClick={() => navigate('/GroupSignup')}>👥 Create Group</div>
+            <div onClick={() => navigate('/groupPage')}>👥 Group Page</div>
             <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
             <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
         </div>
@@ -67,6 +80,20 @@ const GroupSignup = () => {
         <p>Fill out the form below to create a new group.</p>
         <form onSubmit={handleSubmit} id="groupForm">
           <fieldset>
+            <div className='avatarPlaceholder'>
+              {imagePreview ? ( <img src={imagePreview} alt= "Profile Preview" className='profileImage'/>) : (<p>Upload Image</p>)}
+            </div>
+            <div className="file-upload">
+              <label htmlFor="groupProfilePic" className="upload-button">Upload Profile Picture</label>
+              <input
+                type="file"
+                id="profilePic"
+                name="profilePic"
+                accept="image/*"
+                onChange={handleChange}
+              />
+            </div>
+
             <label htmlFor="groupName">Group Name:</label>
             <input
               type="text"

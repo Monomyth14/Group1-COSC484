@@ -5,8 +5,12 @@ import logo from './Images/logo2.png';
 
 
 function About() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
     
+  const handleLogout = () => {
+    navigate('/');
+  };
+
   return (
     <div className="aboutPage-container">
       <div className="sidebar">
@@ -37,6 +41,11 @@ function About() {
           Additionally, The Park is not a platform for unethical breeders or those looking to profit off irresponsible breeding practices.
           Let's work together to keep The Park safe, supportive, and enjoyable for all pet lovers.
         </p>
+      </div>
+
+      <div className="profile-actions">
+        <h3>Profile Actions</h3>
+        <button onClick={handleLogout}>Log Out</button>
       </div>
     </div>
   );

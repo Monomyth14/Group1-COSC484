@@ -17,13 +17,14 @@ function Main() {
     <div className="page-container">
       <div className="sidebar">
         <img src={logo} alt="Logo" />
-        <SearchBar/>
         <div className="nav">
-          <div>ℹ️ <Link to="/about">About Us</Link></div>
-          <div>👤 <Link to="/profile">My Profile</Link></div>
-          <div>👥 <Link to="/group_profile">Group Profile</Link></div>
-          <div>🔍 <Link to="/lost">Lost and Found</Link></div>
-          <div>🎉 <Link to="/petevents">Pet Events</Link></div>
+            <div onClick={() => navigate('/Main')}>🏠 Home</div>
+            <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
+            <div onClick={() => navigate('/profile')}>👤 My Profile</div>
+            <div onClick={() => navigate('/CreatePost')}>📜 Create Post</div>
+            <div onClick={() => navigate('groupPage')}>👥 Group Page</div>
+            <div onClick={() => navigate('/LostAndFound')}>🔍 Lost and Found</div>
+            <div onClick={() => navigate('/PetEvents')}>🎉 Pet Events</div>
         </div>
       </div>
 

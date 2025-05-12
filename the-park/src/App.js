@@ -94,7 +94,7 @@ function AppRoutes() {
       <Route path="/LostAndFound" element={<LostAndFound />} />
       <Route path="/ProfileSignup" element={<ProfileSignup />} />
       <Route path="/GroupSignup" element={<CreateGroup/>} />
-      <Route path="/groupPage" element={<groupPage/>}/>
+      <Route path="/groupPage/:groupId" element={<groupPage />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/EditProfilePage" element={<EditProfilePage />} /> 
       <Route path="/About" element={<About />} />
