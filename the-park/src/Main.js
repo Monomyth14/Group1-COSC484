@@ -17,7 +17,6 @@ function Main() {
     <div className="page-container">
       <div className="sidebar">
         <img src={logo} alt="Logo" />
-        <SearchBar/>
         <div className="nav">
           <div onClick={() => navigate('/Main')}>🏠 Home</div>
             <div onClick={() => navigate('/About')}>ℹ️ About Us</div>
