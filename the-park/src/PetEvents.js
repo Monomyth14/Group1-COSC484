@@ -43,7 +43,7 @@ function PetEvents() {
 
       {/* Main content */}
       <div className="main-content">
-        <h1 className="profile-title">Pet Events</h1>
+        <h1 className="profile-title1">Pet Events</h1>
 
         <form className="form-box" onSubmit={handleSubmit}>
           <input
